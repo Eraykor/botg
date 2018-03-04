@@ -20,14 +20,14 @@ type RoundState struct {
 func NewRoundState(r io.Reader, gs *GameState) *RoundState {
 	rs := &RoundState{}
 
-	fmt.Fscanln(r,
+	fmt.Fscan(r,
 		&rs.Gold,
 		&rs.EnemyGold,
 		&rs.Type,
 	)
 
 	var entityCount int
-	fmt.Fscanln(r, &entityCount)
+	fmt.Fscan(r, &entityCount)
 
 	for i := 0; i < entityCount; i++ {
 		entity := NewEntity(r)

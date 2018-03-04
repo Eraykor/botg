@@ -23,7 +23,7 @@ func NewGameState(r io.Reader) *GameState {
 		var entityType string
 		var x, y, radius int
 
-		fmt.Fscanln(r, &entityType, &x, &y, &radius)
+		fmt.Fscan(r, &entityType, &x, &y, &radius)
 	}
 
 	var itemCount int
