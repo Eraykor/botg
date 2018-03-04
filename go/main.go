@@ -40,7 +40,6 @@ func main() {
 			continue
 		}
 
-	HEROLOOP:
 		for _, hero := range rs.Heroes {
 			hero.Inventory = heroesInventories[hero.HeroType]
 
@@ -54,7 +53,7 @@ func main() {
 			for _, phase := range phases {
 				if phase.Do(gs, rs) {
 					fmt.Fprintln(os.Stderr, "HERO", hero.HeroType, phase.Name)
-					break HEROLOOP
+					break
 				}
 			}
 		}
