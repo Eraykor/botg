@@ -10,8 +10,17 @@ type Phase struct {
 	Do   func(*GameState, *RoundState) bool
 }
 
+func debugf(format string, args ...interface{}) {
+	fmt.Fprintf(os.Stderr, format, args...)
+}
+
+func debug(s string) {
+	fmt.Fprintln(os.Stderr, s)
+}
+
 func main() {
 	gs := NewGameState(os.Stdin)
+	debug("GAME STATE READY")
 
 	heroPicks := []string{"IRONMAN", "HULK"}
 	pick := 0
@@ -23,6 +32,7 @@ func main() {
 
 	for {
 		rs := NewRoundState(os.Stdin, gs)
+		debug("ROUND STATE READY")
 
 		if rs.Type < 0 {
 			fmt.Println(heroPicks[pick])
